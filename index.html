@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estilo.css">
     <title>Layout Flex</title>
-</head>
-<body>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <script src="./js/script.js" defer></script>
     
+</head>
+
+<body>
+
     <header class="cabecalho">
         <img src="./img/logo.png" alt="Monitor de computador">
         <nav>
             <a href="#">Item-1</a>
-            <a href="#">Item-2</a>
-            <a href="#">Item-3</a>
+            <a href="#">Item-1</a>
+            <a href="#">Item-1</a>
         </nav>
     </header>
 
     <h2 class="tit-sec">Seção de Fotos</h2>
+
+    <button id="meu-btn"><span>CLICK</span></button>
+    
 
     <section class="conteudo">
         <div>
@@ -46,34 +54,41 @@
             <p>Legenda</p>
         </div>
     </section>
+
     <footer class="rodape">
         <h2>Fale Conosco</h2>
-            <nav>
-                <a href="#"><img src="./img/social-1.png" alt="Logo"></a>
-                <a href="#"><img src="./img/social-2.png" alt="Logo"></a>
-                <a href="#"><img src="./img/social-3.png" alt="Logo"></a>
-            </nav>
+        	
+        <form action="./info.html" method="get">
+            <fieldset>
+                <legend>Login</legend>
 
-            <div>
-                <form action="index.html" method="get" onsubmit="return false">
-                    <fieldset>
-                        <legend>Contato</legend>
-                        <div>
-                            <label for="idNm">Nome</label>
-                            <input type="text" name="txtNm" id="idNm" placeholder="Nome">
-                        </div>
-                        <div>
-                            <label for="idEmail">Email</label>
-                            <input type="text" name="txtEmail" id="idEmail" placeholder="Email">
-                        </div>
-                        <div>
-                            <input type="submit" value="Enviar" id="enviar">
-                        </div>
-                    </fieldset>
+                <input type="hidden" name="curioso" value="seus-dados">
 
-                </form>
-            </div>
+                <div>
+                    <label for="idUser">Usuário</label>
+                    <input type="text" name="txtUser" id="idUser" placeholder="Usuário">
+                </div>
+                <div>
+                    <label for="idPass">Senha</label>
+                    <input type="password" name="txtPass" id="idPass" placeholder="Senha">
+                </div>
+                <div>
+                    <label for="idGravaDados">Gravar Dados</label>
+                    <input type="checkbox" name="chkDta" id="idGravaDados" value="ok" placeholder="Usuário">
+                </div>
+                <div>
+                    <button type="submit" value="Login">Login</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <nav>
+            <a href="#"><img src="./img/social-1.png" alt="Logo"></a>
+            <a href="#"><img src="./img/social-2.png" alt="Logo"></a>
+            <a href="#"><img src="./img/social-3.png" alt="Logo"></a>
+        </nav>
     </footer>
 
 </body>
+
 </html>
