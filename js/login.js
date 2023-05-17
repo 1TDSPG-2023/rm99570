@@ -1,47 +1,63 @@
+//Gerando um token com Math.
 let tokenGerado = Math.random().toString(16).substring(2);
-
+//DECLARANDO OBJETOS
 const usuario1 = {
-    nomeUsuario: "func",
-    senhaUsuario: "1234",
-    gravarDados: true,
-    token: tokenGerado
+    nomeUsuario : "admin",
+    senhaUsuario: "12345",
+    gravaDados : true,
+    token : tokenGerado
 }
 
+tokenGerado = Math.random().toString(16).substring(2);
+//DECLARANDO OBJETOS
 const usuario2 = {
-    nomeUsuario: "admin",
-    senhaUsuario: "4321",
-    gravarDados: true,
-    token: tokenGerado
+    nomeUsuario : "user",
+    senhaUsuario: "12345",
+    gravaDados : true,
+    token : tokenGerado
 }
 
-let listaDeUsuario = [];
-listaDeUsuario.push(usuario1);
-listaDeUsuario.push(usuario2);
+let listaDeUsuarios = [];
+listaDeUsuarios.push(usuario1);
+listaDeUsuarios.push(usuario2);
 
-addEventListener("click", (evt)=> {
+addEventListener("click", (evt)=>{
+    const inputUser = document.querySelector("#idUser");
+    const inputPass = document.querySelector("#idPass");
 
     if(evt.target.id == "btnSubmit"){
-        const inputUser = document.querySelector("#idUser");
-        const inputPass = document.querySelector("#idPass");
-
-        try{
-            listaDeUsuario.forEach((usuario)=>{
+        
+        try {
+            
+            listaDeUsuarios.forEach((usuario)=>{
+                
                 if(inputUser.value == usuario.nomeUsuario && inputPass.value == usuario.senhaUsuario){
-                    throw "Validado";
+                    throw "VALIDADO";
                 }
             });
+            
+            throw "NÃO VALIDADO";
 
-            throw "Não validado";
-        }catch (msg){
-            const msgError = document.querySelector("#msgError")
-            if(msg == "Validado"){
-                msgError.setAttribute("style", "color: #00ff00")
-                msgError.innerHTML = "<span><strong>Login efetuado com Sucesso!</strong></span>"
+        } catch (msg) {
+            const msgError = document.querySelector("#msgError");
+            if(msg == "VALIDADO"){
+                msgError.setAttribute("style","color:#00ff00;");
+                msgError.innerHTML = "<span><strong>Login efetuado com Sucesso!</strong></span>";
             }else{
-                msgError.setAttribute("style", "color: #ff0000")
-                msgError.innerHTML = "<span><strong>Usuário ou senha inválidos!</strong></span>"
+                msgError.setAttribute("style","color:#ff0000;");
+                msgError.innerHTML = "<span><strong>Usuário ou senha inválidos!</strong></span>";
             }
         }
+
+    }else if(evt.target.className == "fa fa-eye" || evt.target.className == "fa fa-eye-slash"){
+        
+        if(inputPass.getAttribute("type") == "password"){
+            evt.target.setAttribute("class", "fa fa-eye-slash");
+            inputPass.setAttribute("type", "text");
+
+        }else{
+            inputPass.setAttribute("type", "password");
+            evt.target.setAttribute("class", "fa fa-eye");
+        }
     }
-    
 });
